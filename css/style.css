@@ -1,0 +1,85 @@
+*{
+    box-sizing: border-box; 
+    font-family: 'Alfa Slab One', cursive;
+
+}
+
+body {
+    height: 100vh; 
+}
+
+#reels div {
+    height: 200px; 
+    width: 100px; 
+    margin-top: 200px;  
+    margin-right: 40px; 
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#reels {
+    display: flex; 
+    flex-direction: row;
+    justify-content: center; 
+    margin-right: 30px; 
+
+}
+
+#winMsg {
+    margin-left: 90px; 
+}
+
+#spin-btn {
+   
+    height: 80px;
+    width: 150px; 
+    margin-right: 400px; 
+    background: linear-gradient(90deg, #CC1830, #02214B); 
+    transform: translate(-50%, -50%) perspective(500px)rotateY(15deg); 
+    text-align: center;  
+    line-height: 50px; 
+    font-size: 20px; 
+    text-shadow: 6px 3px 2px rgba(0,0,0,.2); 
+    color: #fff; 
+    text-decoration: none;  
+    border-radius: 45px;  
+    letter-spacing: 3px; 
+    transition: .5s;
+    position: absolute; 
+    overflow: hidden;
+    box-shadow: 0 0 0 3px rgba(0,0,0,.1); 
+   
+}
+
+#spin-btn:focus {
+    outline: none; 
+}
+
+#spin-btn:before {
+    content: ''; 
+    position: absolute; 
+    transform: translate(-50%, -50%) perspective(500px) rotateY(-15deg);
+    top: 0; 
+    left: -100%; 
+    width: 100%; 
+    height: 100%; 
+    background: linear-gradient(90deg, transparent, #fff, transparent); 
+    transition: .5s;
+}
+
+#spin-btn:hover {
+    transform: translate(-50%, -50%) perspective(500px); 
+    text-shadow: -6px 3px 2px rgba(0,0,0,.2); 
+}
+
+#spin-btn:hover:before {
+    left: 100%; 
+}
+
+#btn-div {
+    text-align: center; 
+}
+
+
+
+
