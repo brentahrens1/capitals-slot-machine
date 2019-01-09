@@ -6,35 +6,37 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
+        <section id="reels">
+            <div id="reel0"></div>
+            <div id="reel1"></div>
+            <div id="reel2"></div>
+        </section>
 
-    <section id="reels">
-        <div id="reel0"></div>
-        <div id="reel1"></div>
-        <div id="reel2"></div>
-    </section>
+        <div id="moveMsg">
+            <div>Bet: <span id="bet-amt"></span></div>
+            <div id="loseMsg"></div>
+            <div id="winMsg"></div>
+            <div id="msg"></div>
+            <div id="msg2"></div>
+        </div>
 
-    <div id="moveMsg">
-    <div>Bet: <span id="bet-amt"></span></div>
-    <div id="loseMsg"></div>
-    <div id="winMsg"></div>
-    <div id="msg"></div>
-    <div id="msg2"></div>
-    </div>
+        <div id="btn-div">
+            <button id="spin-btn">SPIN</button>
+        </div>
 
-    <div id="btn-div">
-        <button id="spin-btn">SPIN</button>
-    </div>
+        <nav id="bet-btns">
+            <button class="cred">1 credits</button>
+            <button class="cred">2 credits</button>
+            <button class="cred">3 credits</button>
+            <button class="cred">4 credits</button>
+            <button class="cred">5 credits</button>
+        </nav>
 
-    <nav id="bet-btns">
-        <button class="cred">1 credits</button>
-        <button class="cred">2 credits</button>
-        <button class="cred">3 credits</button>
-        <button class="cred">4 credits</button>
-        <button class="cred">5 credits</button>
-    </nav>
+
 
     <img class="hidden" id="ovi" src="images/celly.gif">
 
@@ -42,9 +44,7 @@
 
     <img class="hidden" id="tom" src="images/tom-fight.gif">
 
-    <div id="refresh-button">
-        <button id="refresh-btn">Start Over</button>
-    </div>
+
 
     <audio src="game-sounds/arena-ambience.mp3" autoplay></audio>
 

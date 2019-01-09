@@ -1,14 +1,14 @@
 const symbols = [
-    {name: 'puck', img: 'images/puck.jpg', pts: 1, penalty: false, puck: true, jackpot: false},
-    {name: 'stick', img: 'images/stick.jpg', pts: 2, penalty: false, puck: false, jackpot: false},
-    {name: 'helmut', img: 'images/helmut.jpg', pts: 3, penalty: false, puck: false, jackpot: false},
-    {name: 'jersey', img: 'images/jersey.jpg', pts: 4, penalty: false, puck: false, jackpot: false},
-    {name: 'stanleyCup', img: 'images/stanley-cup.jpg', pts: 20, penalty: false, puck: false, jackpot: true},
-    {name: 'box', img: 'images/box.jpg', pts: -3, penalty: true, puck: false, jackpot:false},
-    {name: 'powerPlay', img: 'images/power.jpg', pts: 3, penalty: false, puck: false, jackpot:false, powerplay:true}
+    {name: 'puck', img: 'images/logo1.png', pts: 1, penalty: false, puck: true, jackpot: false},
+    {name: 'stick', img: 'images/crossStick.png', pts: 2, penalty: false, puck: false, jackpot: false},
+    {name: 'helmut', img: 'images/alex.png', pts: 3, penalty: false, puck: false, jackpot: false},
+    {name: 'jersey', img: 'images/caps-jersey.png', pts: 4, penalty: false, puck: false, jackpot: false},
+    {name: 'stanleyCup', img: 'images/cup1.png', pts: 20, penalty: false, puck: false, jackpot: true},
+    {name: 'box', img: 'images/penalty3.png', pts: -3, penalty: true, puck: false, jackpot:false},
+    {name: 'powerPlay', img: 'images/goalLight.gif', pts: 3, penalty: false, puck: false, jackpot:false, powerplay:true}
 ]; 
 
-const weighting = [6,6,5,5,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,3,3,3,2,2,2,2,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0]; 
+const weighting = [6,6,5,5,4,4,3,3,3,3,2,2,2,2,2,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0]; 
 
 let reels, bankroll, bet, winnings;
 
@@ -18,7 +18,8 @@ let slotSounds = [new Audio('game-sounds/btnPush.mp3'), new Audio('game-sounds/l
                     new Audio('game-sounds/match3.mp3'), new Audio('game-sounds/match4.mp3'),
                     new Audio('game-sounds/match5.mp3'), new Audio('game-sounds/match6.mp3'),
                     new Audio('game-sounds/landing-symbol-sound.mp3'), new Audio('game-sounds/reel-spinning.mp3'), 
-                    new Audio('game-sounds/reels-spinning.mp3'), new Audio('game-sounds/crowd-cheer.mp3')]; 
+                    new Audio('game-sounds/reels-spinning.mp3'), new Audio('game-sounds/crowd-cheer.mp3'),
+                    new Audio('game-sounds/intro1.mp3')]; 
 
 let capsSounds = [new Audio('game-sounds/arena-ambience.mp3'), new Audio('game-sounds/crowd-cheer.mp3'),
                     new Audio('game-sounds/hatrick.mp3'), new Audio('game-sounds/goal1.mp3'), 
@@ -34,6 +35,9 @@ let twoRowSounds = [new Audio('game-sounds/power1.mp3'), new Audio('game-sounds/
                         new Audio('game-sounds/twoGoal3.mp3'), new Audio('game-sounds/twoGoal4.mp3'), 
                         new Audio('game-sounds/twoGoal5.mp3')]; 
 
+let missSounds = [new Audio('game-sounds/miss1.mp3'), new Audio('game-sounds/miss2.mp3'), 
+                    new Audio('game-sounds/miss3.mp3'), new Audio('game-sounds/miss4.mp3')]
+
 const reelEls = document.querySelectorAll('#reels div');
 const spinBtn = document.getElementById('spin-btn');
 const betEl = document.getElementById('bet-amt');
@@ -41,12 +45,6 @@ const refreshGameBtn = document.getElementById('refresh-btn');
 const oviSlide = document.getElementById('ovi');
 const oshieSlide = document.getElementById('oshie'); 
 const tomFight = document.getElementById('tom'); 
-
-refreshGameBtn.addEventListener('click', startOver);
-
-function startOver(){
-    init(); 
-};
 
 spinBtn.addEventListener('click', function(evt){
     if (evt.target.tagName !== 'BUTTON') return;
@@ -122,6 +120,11 @@ function randomHat() {
 function randomTwo() {
     let randomTwoRow = twoRowSounds[Math.floor(Math.random() * twoRowSounds.length)]; 
     randomTwoRow.play(); 
+}
+
+function randomMiss() {
+    let randomMisses = missSounds[Math.floor(Math.random() * missSounds.length)]; 
+    randomMisses.play(); 
 }
 
 function getNumPenalties() {
@@ -232,6 +235,7 @@ function computeWinnings() {
             if (newPowerPlay) winnings *= 2; 
         }
     } else {
+        randomMiss(); 
         winnings = -1 * bet;
     }
     bankroll += winnings;

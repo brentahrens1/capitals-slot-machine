@@ -1,16 +1,17 @@
 *{
     box-sizing: border-box; 
-    font-family: 'Alfa Slab One', cursive;
-
 }
 
 body {
+    font-family: 'Alfa Slab One', cursive;
     height: 100vh; 
+    background-image: url('../images/Ice.jpg'); 
+    background-size: cover;
 }
 
 #reels div {
-    height: 200px; 
-    width: 100px; 
+    height: 250px; 
+    width: 150px; 
     margin-top: 200px;  
     margin-right: 40px; 
     background-repeat: no-repeat;
@@ -96,7 +97,11 @@ body {
 #moveMsg {
     display:flex; 
     flex-direction: column; 
-    margin-left: 1000px; 
+    font-size: 25px; 
+    margin-left: 900px; 
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase; 
+    font-weight: bold; 
 }
 
 .cred { 
@@ -167,7 +172,7 @@ body {
     position: absolute; 
     left:480px;
     bottom: 300px; 
-    border: 2px solid #02214B; 
+    border: 4px solid #02214B; 
     border-radius: 6px; 
 }
 
@@ -187,5 +192,11 @@ body {
 
 .hidden {
     display: none; 
+}
+
+main {
+    background-color: #fff; 
+    width: 700px; 
+    margin: 100px auto;
 }
 
