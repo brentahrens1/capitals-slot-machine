@@ -8,8 +8,7 @@ const symbols = [
     {name: 'powerPlay', img: 'images/power.jpg', pts: 3, penalty: false, puck: false, jackpot:false, powerplay:true}
 ]; 
 
-const weighting = [6,6,5,4,4,3,3,3,3,2,2,2,2,2,,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,
-                    0,0]; 
+const weighting = [6,6,5,4,4,3,3,3,2,2,2,2,,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0]; 
 
 let reels, bankroll, bet, winnings;
 
@@ -43,7 +42,7 @@ let refreshGameBtn = document.getElementById('refresh-btn');
 refreshGameBtn.addEventListener('click', startOver);
 
 function startOver(){
-    document.location.reload()
+    init(); 
 };
 
 spinBtn.addEventListener('click', function(evt){
@@ -106,6 +105,7 @@ function spin() {
     for (let i = 0; i < 3; i++) {
         reels.push(weighting[Math.floor(Math.random() * weighting.length)]); 
     }
+    if(reels.length < 3) debugger
     doFlashing(function() {
         computeWinnings();
         bet = 0;
@@ -220,37 +220,3 @@ function computeWinnings() {
     bankroll += winnings;
 }; 
  
-
-
-
-// || reels[1] === reels[2] || reels[0] === reels[2])
-//    let symbol = symbols[reels[0]];
-//         let symbol2 = symbols[reels[1]]; 
-//         let symbol3 = symbols[reels[2]];
-
-
-// else if (reels[0] === reels[1] && reels[2] === symbols[4].id) {
-//     winnings += symbols[reels[0]].pts + symbols[reels[1]].pts + symbols[4].pts;
-//     bankroll += winnings; 
-// } else if (reels[0] === reels[2] && reels[1] === symbols[4].id) {
-//     winnings += symbols[reels[0]].pts + symbols[reels[2]].pts + symbols[4].pts;
-//     bankroll += winnings; 
-// } else if (reels[1] === reels[2] && reels[0] === symbols[4].id) {
-//     winnings += symbols[reels[1]].pts + symbols[reels[2]].pts + symbols[4].pts;
-//     bankroll += winnings; 
-// } 
-
-
-// else if (reels[0] === reels[1] && reels[1] === reels[2]) {
-//     winnings += symbols[reels[0]].pts + symbols[reels[1]].pts + symbols[reels[2]].pts;
-//     winnings *= 2; 
-//     bankroll += winnings; 
-// } else if(reels[0] === reels[1]) { 
-//     winnings += symbols[reels[0]].pts + symbols[reels[1]].pts;
-//     bankroll += winnings; 
-// } else if (reels[1] === reels[2]) {
-//     winnings += symbols[reels[1]].pts + symbols[reels[2]].pts;
-//     bankroll += winnings; 
-// } else if (reels[0] === reels[2]) {
-//     winnings += symbols[reels[0]].pts + symbols[reels[2]].pts;
-//     bankroll += winnings; 

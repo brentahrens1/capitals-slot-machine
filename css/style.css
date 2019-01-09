@@ -29,11 +29,17 @@ body {
     margin-left: 90px; 
 }
 
+#btn-div {
+    text-align: center;
+}
+
 #spin-btn {
    
     height: 80px;
     width: 150px; 
-    margin-right: 400px; 
+    margin-left: 100px; 
+    margin-right: auto; 
+    margin-bottom: 50px; 
     background: linear-gradient(90deg, #CC1830, #02214B); 
     transform: translate(-50%, -50%) perspective(500px)rotateY(15deg); 
     text-align: center;  
@@ -45,7 +51,6 @@ body {
     border-radius: 45px;  
     letter-spacing: 3px; 
     transition: .5s;
-    position: absolute; 
     overflow: hidden;
     box-shadow: 0 0 0 3px rgba(0,0,0,.1); 
    
@@ -80,6 +85,72 @@ body {
     text-align: center; 
 }
 
+#bet-btns {
+    display: flex;
+    justify-content: space-around;
+    width: 40em;
+    margin: 0 auto;
+    height: 60px; 
+}
+
+#moveMsg {
+    display:flex; 
+    flex-direction: column; 
+    margin-left: 1000px; 
+}
+
+.cred { 
+    border-radius: 20px; 
+    background: linear-gradient(90deg, #CC1830, #02214B); 
+    transform: translate(-50%, -50%) perspective(500px); 
+    color: #fff; 
+    font-size: 15px; 
+    text-shadow: 6px 3px 2px rgba(0,0,0,.2);
+    letter-spacing: 1px; 
+    transition: .5s;
+    overflow: hidden;
+    box-shadow: 0 0 0 3px rgba(0,0,0,.1); 
+}
+
+.cred:focus {
+    outline: none; 
+}
+
+.cred:before {
+    content: ''; 
+    position: absolute; 
+    transform: translate(-50%, -50%) perspective(500px);
+    top: 0; 
+    left: -100%; 
+    width: 100%; 
+    height: 100%; 
+    background: linear-gradient(90deg, transparent, #fff, transparent); 
+    transition: .5s;
+}
+
+.cred:hover {
+    transform: translate(-50%, -50%) perspective(500px); 
+    text-shadow: -6px 3px 2px rgba(0,0,0,.2); 
+}
+
+.cred:hover:before {
+    left: 100%; 
+}
+
+.ovi {
+    position: absolute; 
+    display:flex;  
+    left: 200px; 
+    bottom: 200px;
+    animation-name: skate; 
+    animation-duration: 3s; 
+    animation-fill-mode: forwards;
+}
+
+@keyframes skate {
+    from{transform: translateX(0)}
+    to{transform: translateX(1500px)}
+}
 
 
 
