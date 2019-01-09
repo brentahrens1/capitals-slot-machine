@@ -73,10 +73,6 @@ function init() {
 init(); 
 
 function doFlashing(callback) {
-    // randomly choose symbols
-    for (let i = 0; i < 3; i++) {
-        reels.push(weighting[Math.floor(Math.random() * weighting.length)]); 
-    }
     // start eye candy flashing
     let count = 0;
     let stoppedReels = 0;
@@ -104,8 +100,12 @@ function doFlashing(callback) {
 }; 
 
 function spin() {
-    reels = [];
     winnings = 0;
+    reels = [];
+    // randomly choose symbols
+    for (let i = 0; i < 3; i++) {
+        reels.push(weighting[Math.floor(Math.random() * weighting.length)]); 
+    }
     doFlashing(function() {
         computeWinnings();
         bet = 0;
