@@ -8,7 +8,7 @@ const symbols = [
     {name: 'powerPlay', img: 'images/power.jpg', pts: 3, penalty: false, puck: false, jackpot:false, powerplay:true}
 ]; 
 
-const weighting = [6,6,5,4,4,3,3,3,2,2,2,2,,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0]; 
+const weighting = [6,6,5,5,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,3,3,3,2,2,2,2,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0]; 
 
 let reels, bankroll, bet, winnings;
 
@@ -18,7 +18,7 @@ let slotSounds = [new Audio('game-sounds/btnPush.mp3'), new Audio('game-sounds/l
                     new Audio('game-sounds/match3.mp3'), new Audio('game-sounds/match4.mp3'),
                     new Audio('game-sounds/match5.mp3'), new Audio('game-sounds/match6.mp3'),
                     new Audio('game-sounds/landing-symbol-sound.mp3'), new Audio('game-sounds/reel-spinning.mp3'), 
-                    new Audio('game-sounds/reels-spinning.mp3')]; 
+                    new Audio('game-sounds/reels-spinning.mp3'), new Audio('game-sounds/crowd-cheer.mp3')]; 
 
 let capsSounds = [new Audio('game-sounds/arena-ambience.mp3'), new Audio('game-sounds/crowd-cheer.mp3'),
                     new Audio('game-sounds/hatrick.mp3'), new Audio('game-sounds/goal1.mp3'), 
@@ -37,7 +37,10 @@ let twoRowSounds = [new Audio('game-sounds/power1.mp3'), new Audio('game-sounds/
 const reelEls = document.querySelectorAll('#reels div');
 const spinBtn = document.getElementById('spin-btn');
 const betEl = document.getElementById('bet-amt');
-let refreshGameBtn = document.getElementById('refresh-btn');
+const refreshGameBtn = document.getElementById('refresh-btn');
+const oviSlide = document.getElementById('ovi');
+const oshieSlide = document.getElementById('oshie'); 
+const tomFight = document.getElementById('tom'); 
 
 refreshGameBtn.addEventListener('click', startOver);
 
@@ -72,7 +75,6 @@ function init() {
 init(); 
 
 function doFlashing(callback) {
-    // start eye candy flashing
     let count = 0;
     let stoppedReels = 0;
     let timerId = setInterval(function(){
@@ -101,7 +103,6 @@ function doFlashing(callback) {
 function spin() {
     winnings = 0;
     reels = [];
-    // randomly choose symbols
     for (let i = 0; i < 3; i++) {
         reels.push(weighting[Math.floor(Math.random() * weighting.length)]); 
     }
@@ -126,7 +127,6 @@ function randomTwo() {
 function getNumPenalties() {
     let count = 0; 
     reels.forEach(reel => {
-        // find the actual symbol object for the reel (idx)
         let symbol = symbols[reel];
         if (symbol.penalty) count++; 
     });
@@ -197,19 +197,36 @@ function computeWinnings() {
     let newPowerPlay = numPowerplay(); 
     if (penalties) {
         let penaltySymbol = symbols.find(symbol => symbol.penalty); 
+        tomFight.className = 'tom';
+        setTimeout(function() {
+            tomFight.className = "hidden"; 
+        }, 2500) 
         capsSounds[5].play(); 
         winnings = penaltySymbol.pts * bet;
     } else if (jackpot === 3) {
-        let jackPotSymbol = symbols.find(symbol => symbol.jackpot); 
+        let jackPotSymbol = symbols.find(symbol => symbol.jackpot);  
+        oviSlide.className = 'ovi';
+        setTimeout(function() {
+            oviSlide.className = "hidden"; 
+        }, 2000) 
         capsSounds[4].play(); 
-        winnings = jackPotSymbol.pts * 20; 
+        winnings = jackPotSymbol.pts * 50; 
     } else if (symbolThree) {
-        randomHat();  
+        oviSlide.className = 'ovi';
+        setTimeout(function() {
+            oviSlide.className = "hidden"; 
+        }, 2000) 
+        randomHat(); 
+        slotSounds[13].play(); 
         winnings += symbolThree.pts * 3 * bet; 
     } else if (symbolTwo) {
+        oshieSlide.className = "oshie";
+        setTimeout(function() {
+            oshieSlide.className = "hidden"; 
+        }, 2000)
         randomTwo(); 
         if (symbolTwo.puck) {
-            winnings = 0;
+            winnings = 1;
         } else { 
             winnings = symbolTwo.pts * bet; 
             if (newPowerPlay) winnings *= 2; 

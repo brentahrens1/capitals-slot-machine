@@ -104,12 +104,13 @@ body {
     background: linear-gradient(90deg, #CC1830, #02214B); 
     transform: translate(-50%, -50%) perspective(500px); 
     color: #fff; 
-    font-size: 15px; 
+    font-size: 13px; 
     text-shadow: 6px 3px 2px rgba(0,0,0,.2);
     letter-spacing: 1px; 
     transition: .5s;
     overflow: hidden;
     box-shadow: 0 0 0 3px rgba(0,0,0,.1); 
+    text-transform: uppercase;
 }
 
 .cred:focus {
@@ -147,10 +148,44 @@ body {
     animation-fill-mode: forwards;
 }
 
+.oshie {
+    position: absolute; 
+    display:flex;  
+    left: 200px; 
+    bottom: 200px;
+    animation-name: skate; 
+    animation-duration: 3s; 
+    animation-fill-mode: forwards;
+}
+
+#oshie {
+    width: 450px; 
+    height: 500px; 
+}
+
+#tom {
+    position: absolute; 
+    left:480px;
+    bottom: 300px; 
+    border: 2px solid #02214B; 
+    border-radius: 6px; 
+}
+
 @keyframes skate {
     from{transform: translateX(0)}
     to{transform: translateX(1500px)}
 }
 
+#refresh-btn {
+    color:black; 
+    font-size: 13px; 
+    border: 2px solid #CC1830;  
+    padding: 14px 20px; 
+    text-transform: uppercase; 
+}
 
+
+.hidden {
+    display: none; 
+}
 
