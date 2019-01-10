@@ -7,6 +7,7 @@ const refreshGameBtn = document.getElementById('refresh-btn');
 const oviSlide = document.getElementById('ovi');
 const oshieSlide = document.getElementById('oshie'); 
 const tomFight = document.getElementById('tom');
+const placeBetMsg = document.querySelector('h3'); 
 
 const symbols = [
     {name: 'puck', img: 'images/logo1.png', pts: 1, penalty: false, puck: true, jackpot: false},
@@ -93,12 +94,12 @@ function doFlashing(callback) {
 }; 
 
 function spin() {
-    winnings = 0;
+    winnings = null;
     reels = [];
     for (let i = 0; i < 3; i++) {
         reels.push(weighting[Math.floor(Math.random() * weighting.length)]); 
     }
-    if(reels.length < 3) debugger
+    spinBtn.style.visibility = 'hidden';
     doFlashing(function() {
         computeWinnings();
         bet = 0;
@@ -182,6 +183,7 @@ function render() {
         document.getElementById('msg2').innerHTML = "Credits : 0";
     }
     betEl.textContent = bet;
+    placeBetMsg.style.visibility = bet ? 'hidden' : 'visible';
     spinBtn.style.visibility = bet ? 'visible' : 'hidden';
 };
 

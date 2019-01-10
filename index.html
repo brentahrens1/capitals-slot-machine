@@ -12,30 +12,35 @@
 </head>
 <body>
 
-        <h1>ROCK THE RED</h1>
-        
+    <h1>ROCK THE RED</h1>
+    
+    <div id="container">
         <div id="msg-chart">
-        <div id="moveMsg">
-            <div>Bet: <span id="bet-amt"></span></div>
-            <div id="loseMsg"></div>
-            <div id="winMsg"></div>
-            <div id="msg"></div>
-            <div id="msg2"></div>
+            <img id="winChart" src="images/WinChart.jpg">
+            <div id="moveMsg">
+                    <div>Bet: <span id="bet-amt"></span></div>
+                    <div id="loseMsg"></div>
+                    <div id="winMsg"></div>
+                    <div id="msg"></div>
+                    <div id="msg2"></div>
+                </div>
         </div>
-
-        <img id="winChart" src="images/WinChart.jpg">
-        </div>
-        
+    
         <div id="move">
-        <section id="reels">
-            <div id="reel0"></div>
-            <div id="reel1"></div>
-            <div id="reel2"></div>
-        </section>
+            <section id="reels">
+                <div id="reel0"></div>
+                <div id="reel1"></div>
+                <div id="reel2"></div>
+            </section>
+        </div>
 
-            <button id="spin-btn">SPIN</button>
-
-
+    </div>
+    <div id="hiddenMsg">
+        <h3 class="text animated bounce">PLACE YOUR BET</h3>
+        <div id="btn-container">
+        <button id="spin-btn">SPIN</button>
+    </div>
+    </div>
         <nav id="bet-btns">
             <button class="cred">1 credits</button>
             <button class="cred">2 credits</button>
@@ -43,25 +48,17 @@
             <button class="cred">4 credits</button>
             <button class="cred">5 credits</button>
         </nav>
-        </div>
-     
-        
+    </div> 
 
     <img class="hidden" id="ovi" src="images/celly.gif">
-
     <img class="hidden" id="oshie" src="images/oshie.gif"> 
-
     <img class="hidden" id="tom" src="images/tom-fight.gif">
-
     <img class="hidden" id="cup" src="images/cuplift2.gif">
-
-
 
     <audio src="game-sounds/arena-ambience.mp3" autoplay></audio>
 
     <footer></footer>
 
-
- <script src="js/app.js"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>
