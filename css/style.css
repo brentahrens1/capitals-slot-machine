@@ -55,8 +55,8 @@ h1 {
 
 #reels div {
     position: absolute;
-    height: 200px; 
-    width: 120px; 
+    height: 100px; 
+    width: 60px; 
     display: flex; 
     justify-content: flex-start; 
     background-size: cover; 
@@ -64,18 +64,18 @@ h1 {
 }
 
 #reel0 {
-    top: 155px;
+    top: 350px;
     left: 75px;
 }
 
 #reel1 {
-    top: 155px;
-    left: 240px;
+    top: 350px;
+    left: 180px;
 }
 
 #reel2 {
-    top: 155px;
-    left: 405px;
+    top: 350px;
+    left: 282px;
 }
 
 #reels {
@@ -84,12 +84,12 @@ h1 {
     justify-content: flex-start; 
     align-items: center; 
     margin-left: 100px; 
-    background-image: url(../images/slotmachine.png); 
+    background-image: url(../images/SlotMachine5.png); 
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
-    width: 700px;
-    height: 413px;
+    width: 411px;
+    height: 700px;
 }
 
 
