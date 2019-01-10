@@ -174,13 +174,13 @@ function render() {
             reelEls[i].style.backgroundImage = `url(${symbols[reels[i]].img})`;
         }
     }
-    document.getElementById('msg').innerHTML = `Prize : ${winnings}`;
-    document.getElementById('msg2').innerHTML = `Credits : ${bankroll}`;
+    document.getElementById('msg').innerHTML = winnings;
+    document.getElementById('msg2').innerHTML = bankroll;
     if (bankroll <= 0) {
         document.getElementById('loseMsg').innerHTML = "You don't have enough credits!";
         document.getElementById("spin-btn").disabled = true; 
         document.getElementById("double-bet").disabled = true; 
-        document.getElementById('msg2').innerHTML = "Credits : 0";
+        document.getElementById('msg2').innerHTML = "0";
     }
     betEl.textContent = bet;
     placeBetMsg.style.visibility = bet ? 'hidden' : 'visible';
