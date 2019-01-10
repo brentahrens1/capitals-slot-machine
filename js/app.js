@@ -1,30 +1,31 @@
+let reels, bankroll, bet, winnings;
+
+const reelEls = document.querySelectorAll('#reels div');
+const spinBtn = document.getElementById('spin-btn');
+const betEl = document.getElementById('bet-amt');
+const refreshGameBtn = document.getElementById('refresh-btn');
+const oviSlide = document.getElementById('ovi');
+const oshieSlide = document.getElementById('oshie'); 
+const tomFight = document.getElementById('tom');
+
 const symbols = [
     {name: 'puck', img: 'images/logo1.png', pts: 1, penalty: false, puck: true, jackpot: false},
     {name: 'stick', img: 'images/crossStick.png', pts: 2, penalty: false, puck: false, jackpot: false},
-    {name: 'helmut', img: 'images/alex.png', pts: 3, penalty: false, puck: false, jackpot: false},
+    {name: 'helmut', img: 'images/great.png', pts: 8, penalty: false, puck: false, jackpot: false},
     {name: 'jersey', img: 'images/caps-jersey.png', pts: 4, penalty: false, puck: false, jackpot: false},
     {name: 'stanleyCup', img: 'images/cup1.png', pts: 20, penalty: false, puck: false, jackpot: true},
     {name: 'box', img: 'images/Ref.png', pts: -3, penalty: true, puck: false, jackpot:false},
     {name: 'powerPlay', img: 'images/goalLight.gif', pts: 3, penalty: false, puck: false, jackpot:false, powerplay:true}
 ]; 
 
-const weighting = [6,6,5,5,4,4,3,3,3,3,2,2,2,2,2,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0]; 
-
-let reels, bankroll, bet, winnings;
+const weighting = [6,6,5,5,4,4,4,3,3,3,3,2,2,2,2,2,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0]; 
 
 let slotSounds = [new Audio('game-sounds/btnPush.mp3'), new Audio('game-sounds/landing-symbol-sound2.mp3'), 
-                    new Audio('game-sounds/noMatch.mp3'), new Audio('game-sounds/reels-spinning2.mp3'),
-                    new Audio('game-sounds/match1.mp3'), new Audio('game-sounds/match2.mp3'), 
-                    new Audio('game-sounds/match3.mp3'), new Audio('game-sounds/match4.mp3'),
-                    new Audio('game-sounds/match5.mp3'), new Audio('game-sounds/match6.mp3'),
-                    new Audio('game-sounds/landing-symbol-sound.mp3'), new Audio('game-sounds/reel-spinning.mp3'), 
-                    new Audio('game-sounds/reels-spinning.mp3'), new Audio('game-sounds/crowd-cheer.mp3'),
-                    new Audio('game-sounds/intro1.mp3')]; 
+                    new Audio('game-sounds/match1.mp3'), new Audio('game-sounds/match6.mp3'), 
+                    new Audio('game-sounds/landing-symbol-sound.mp3'), new Audio('game-sounds/reels-spinning.mp3'), 
+                    new Audio('game-sounds/crowd-cheer.mp3'),]; 
 
-let capsSounds = [new Audio('game-sounds/arena-ambience.mp3'), new Audio('game-sounds/crowd-cheer.mp3'),
-                    new Audio('game-sounds/hatrick.mp3'), new Audio('game-sounds/goal1.mp3'), 
-                    new Audio('game-sounds/jackpot-celeration.mp3'), new Audio('game-sounds/penalty-box.mp3'),
-                    new Audio('game-sounds/score3.mp3'), new Audio('game-sounds/scores.mp3')]
+let capsSounds = [new Audio('game-sounds/jackpot-celeration.mp3'), new Audio('game-sounds/penalty-box.mp3')]; 
 
 
 let hatrickSounds = [new Audio('game-sounds/hatrick.mp3'), new Audio('game-sounds/hatrick2.mp3'), 
@@ -38,18 +39,11 @@ let twoRowSounds = [new Audio('game-sounds/power1.mp3'), new Audio('game-sounds/
 let missSounds = [new Audio('game-sounds/miss1.mp3'), new Audio('game-sounds/miss2.mp3'), 
                     new Audio('game-sounds/miss3.mp3'), new Audio('game-sounds/miss4.mp3')]
 
-const reelEls = document.querySelectorAll('#reels div');
-const spinBtn = document.getElementById('spin-btn');
-const betEl = document.getElementById('bet-amt');
-const refreshGameBtn = document.getElementById('refresh-btn');
-const oviSlide = document.getElementById('ovi');
-const oshieSlide = document.getElementById('oshie'); 
-const tomFight = document.getElementById('tom'); 
 
 spinBtn.addEventListener('click', function(evt){
     if (evt.target.tagName !== 'BUTTON') return;
-    slotSounds[4].play(); 
-    slotSounds[12].play();  
+    slotSounds[2].play(); 
+    slotSounds[5].play();  
     spin(); 
 });
 
@@ -83,14 +77,14 @@ function doFlashing(callback) {
         if (count === 30) {
             stoppedReels++;
             reelEls[0].style.backgroundImage = `url(${symbols[reels[0]].img})`;
-            slotSounds[10].play(); 
+            slotSounds[4].play(); 
         } else if (count === 40) {
             stoppedReels++;
             reelEls[1].style.backgroundImage = `url(${symbols[reels[1]].img})`;
             slotSounds[1].play(); 
         } else if (count === 50) {
             reelEls[2].style.backgroundImage = `url(${symbols[reels[2]].img})`;
-            slotSounds[10].play(); 
+            slotSounds[4].play(); 
             clearInterval(timerId);
             callback(); 
         }
@@ -204,7 +198,7 @@ function computeWinnings() {
         setTimeout(function() {
             tomFight.className = "hidden"; 
         }, 2500) 
-        capsSounds[5].play(); 
+        capsSounds[1].play(); 
         winnings = penaltySymbol.pts * bet;
     } else if (jackpot === 3) {
         let jackPotSymbol = symbols.find(symbol => symbol.jackpot);  
@@ -212,7 +206,7 @@ function computeWinnings() {
         setTimeout(function() {
             oviSlide.className = "hidden"; 
         }, 2000) 
-        capsSounds[4].play(); 
+        capsSounds[0].play(); 
         winnings = jackPotSymbol.pts * 50; 
     } else if (symbolThree) {
         oviSlide.className = 'ovi';
@@ -220,7 +214,7 @@ function computeWinnings() {
             oviSlide.className = "hidden"; 
         }, 2000) 
         randomHat(); 
-        slotSounds[13].play(); 
+        slotSounds[6].play(); 
         winnings += symbolThree.pts * 3 * bet; 
     } else if (symbolTwo) {
         oshieSlide.className = "oshie";
