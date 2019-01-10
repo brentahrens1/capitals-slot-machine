@@ -10,10 +10,10 @@ const tomFight = document.getElementById('tom');
 const placeBetMsg = document.querySelector('h3'); 
 
 const symbols = [
-    {name: 'puck', img: 'images/logo1.png', pts: 1, penalty: false, puck: true, jackpot: false},
-    {name: 'stick', img: 'images/crossStick.png', pts: 2, penalty: false, puck: false, jackpot: false},
-    {name: 'helmut', img: 'images/great.png', pts: 8, penalty: false, puck: false, jackpot: false},
-    {name: 'jersey', img: 'images/caps-jersey.png', pts: 4, penalty: false, puck: false, jackpot: false},
+    {name: 'puck', img: 'images/mascot2.jpg', pts: 1, penalty: false, puck: true, jackpot: false},
+    {name: 'stick', img: 'images/giphy.gif', pts: 2, penalty: false, puck: false, jackpot: false},
+    {name: 'helmut', img: 'images/newholt.png', pts: 8, penalty: false, puck: false, jackpot: false},
+    {name: 'jersey', img: 'images/ovechkin.png', pts: 4, penalty: false, puck: false, jackpot: false},
     {name: 'stanleyCup', img: 'images/cup1.png', pts: 20, penalty: false, puck: false, jackpot: true},
     {name: 'box', img: 'images/Ref.png', pts: -3, penalty: true, puck: false, jackpot:false},
     {name: 'powerPlay', img: 'images/goalLight.gif', pts: 3, penalty: false, puck: false, jackpot:false, powerplay:true}
