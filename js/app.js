@@ -4,7 +4,7 @@ const symbols = [
     {name: 'helmut', img: 'images/alex.png', pts: 3, penalty: false, puck: false, jackpot: false},
     {name: 'jersey', img: 'images/caps-jersey.png', pts: 4, penalty: false, puck: false, jackpot: false},
     {name: 'stanleyCup', img: 'images/cup1.png', pts: 20, penalty: false, puck: false, jackpot: true},
-    {name: 'box', img: 'images/penalty3.png', pts: -3, penalty: true, puck: false, jackpot:false},
+    {name: 'box', img: 'images/Ref.png', pts: -3, penalty: true, puck: false, jackpot:false},
     {name: 'powerPlay', img: 'images/goalLight.gif', pts: 3, penalty: false, puck: false, jackpot:false, powerplay:true}
 ]; 
 
