@@ -10,13 +10,13 @@ const tomFight = document.getElementById('tom');
 const placeBetMsg = document.querySelector('h3'); 
 
 const symbols = [
-    {name: 'puck', img: 'images/mascot2.jpg', pts: 1, penalty: false, puck: true, jackpot: false},
-    {name: 'stick', img: 'images/giphy.gif', pts: 2, penalty: false, puck: false, jackpot: false},
-    {name: 'helmut', img: 'images/newholt.png', pts: 8, penalty: false, puck: false, jackpot: false},
-    {name: 'jersey', img: 'images/ovechkin.png', pts: 4, penalty: false, puck: false, jackpot: false},
-    {name: 'stanleyCup', img: 'images/cup1.png', pts: 20, penalty: false, puck: false, jackpot: true},
+    {name: 'logo', img: 'images/newnew.png', pts: 1, penalty: false, puck: true, jackpot: false},
+    {name: 'mascot', img: 'images/mascot2.jpg', pts: 2, penalty: false, puck: false, jackpot: false},
+    {name: 'ovechkin', img: 'images/ovechkin.png', pts: 8, penalty: false, puck: false, jackpot: false},
+    {name: 'conn-symthe', img: 'images/conn.png', pts: 4, penalty: false, puck: false, jackpot: false},
+    {name: 'stanley-cup', img: 'images/cup1.png', pts: 20, penalty: false, puck: false, jackpot: true},
     {name: 'box', img: 'images/Ref.png', pts: -3, penalty: true, puck: false, jackpot:false},
-    {name: 'powerPlay', img: 'images/goalLight.gif', pts: 3, penalty: false, puck: false, jackpot:false, powerplay:true}
+    {name: 'power-play', img: 'images/jers.png', pts: 3, penalty: false, puck: false, jackpot:false, powerplay:true}
 ]; 
 
 const weighting = [6,6,5,5,4,4,4,3,3,3,3,2,2,2,2,2,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0]; 
