@@ -2,7 +2,7 @@
 **DESCRIPTION -**
 "Rock The Red" is a Washington Capitals themed slot machine. The goal was to make it an experience any true Caps fan would love. Adding animations and audio that are randomized for each result in the game.Designed to make you want to keep playing to see what happens next. 
 
-![GitHub Logo](https://i.imgur.com/bx0p9XK.png)
+![GitHub Logo](https://i.imgur.com/pfRBBET.png)
 
 
 **TECHNOLOGY USED -**
@@ -25,7 +25,8 @@ I started with a notepad pseudo coding and sketching out ideas on how to go abou
 * cleaner symbols for the reels. 
 * A background ambience. 
 
-**SUMMARY -** Most of what I set out to do creatively with this slot project was accomplished. I think the animations when you land on a 2 or 3 row combo is my favorite part. As well as all the audio features which make the game much more fun to play.
+**SUMMARY -** Most of what I set out to do creatively with this slot project was accomplished. I think the animations when you land on a 2 or 3 row combo is my favorite part. As well as all the audio features which make the game much more fun to play. 
+
 
 
 
