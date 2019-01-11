@@ -47,8 +47,8 @@ h1 {
 
 #reels div {
     position: absolute;
-    height: 100px; 
-    width: 60px; 
+    height: 115px; 
+    width: 75px; 
     display: flex; 
     justify-content: flex-start; 
     background-size: cover; 
@@ -56,18 +56,18 @@ h1 {
 }
 
 #reel0 {
-    top: 350px;
-    left: 60px;
+    top: 345px;
+    left: 62px;
 }
 
 #reel1 {
-    top: 350px;
-    left: 165px;
+    top: 345px;
+    left: 167px;
 }
 
 #reel2 {
-    top: 350px;
-    left: 267px;
+    top: 345px;
+    left: 269px;
 }
 
 #reels {
